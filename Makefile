@@ -40,3 +40,6 @@ libafrodite-test: afroditetest.vala
 	$(VALAC) --vapidir ./vapi --vapidir ./ --pkg $(LIBNAME) --pkg gio-2.0 --pkg $(LIBVALA) --pkg utils $^
 
 all: libafrodite
+
+clean:
+	git clean -f -d -x
