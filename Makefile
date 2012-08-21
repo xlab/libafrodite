@@ -1,3 +1,5 @@
+# Written by Maxim Kouprianov <me@kc.vc>
+
 NULL=
 
 LIBNAME = libafrodite-1.0
@@ -32,7 +34,7 @@ libafrodite_SOURCES = \
 all: libafrodite afrodite-test
 
 libafrodite: $(libafrodite_SOURCES)
-	$(VALAC) --enable-experimental \
+	$(VALAC) --target-glib=2.32 \
 	-X -fPIC -X -shared \
 	--library $(LIBNAME) \
 	-o $(LIBNAME).so \

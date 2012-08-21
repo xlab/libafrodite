@@ -1,3 +1,5 @@
+# Written by Maxim Kouprianov <me@kc.vc>
+
 NULL=
 
 LIBNAME = libafrodite-1.0
