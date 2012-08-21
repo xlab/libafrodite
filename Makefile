@@ -35,9 +35,9 @@ all: libafrodite afrodite-test
 
 libafrodite: $(libafrodite_SOURCES)
 	$(VALAC) --target-glib=2.32 \
-	-X -fPIC -X -shared \
+	-X -fPIC -X -shared -X -dynamiclib \
 	--library $(LIBNAME) \
-	-o $(LIBNAME).so \
+	-o $(LIBNAME).dylib \
 	--header afrodite.h --vapidir ./vapi \
 	--pkg gio-2.0 --pkg $(LIBVALA) --pkg utils $^
 	
