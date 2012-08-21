@@ -1,4 +1,5 @@
 NULL=
+export LD_LIBRARY_PATH := $(shell pwd)
 
 LIBNAME = libafrodite-1.0
 TESTNAME = afrodite-test
@@ -29,17 +30,21 @@ libafrodite_SOURCES = \
 	sourceitem.vala \
 	$(NULL)
 
+all: libafrodite afrodite-test
+
 libafrodite: $(libafrodite_SOURCES)
 	$(VALAC) --enable-experimental \
 	-X -fPIC -X -shared \
 	--library $(LIBNAME) \
 	-o $(LIBNAME).so \
-	-H afrodite.h --library $(LIBNAME) --vapidir ./vapi --pkg gio-2.0 --pkg $(LIBVALA) --pkg utils $^
+	--header afrodite.h --library $(LIBNAME) --vapidir ./vapi \
+	--pkg gio-2.0 --pkg $(LIBVALA) --pkg utils $^
+	
 
-libafrodite-test: afroditetest.vala
-	$(VALAC) --vapidir ./vapi --vapidir ./ --pkg $(LIBNAME) --pkg gio-2.0 --pkg $(LIBVALA) --pkg utils $^
-
-all: libafrodite
+afrodite-test: afroditetest.vala
+	$(VALAC) -X -I. -X -L. -X -lafrodite-1.0 --vapidir ./vapi --vapidir ./ --pkg $(LIBNAME) \
+	--pkg gio-2.0 --pkg $(LIBVALA) --pkg utils $^
 
 clean:
 	git clean -f -d -x
+	touch .tags
