@@ -61,7 +61,7 @@ public class AfroditeTest.Application : Object {
 		try {
 			opt_context.parse (ref args);
 		} catch (Error err) {
-			error (_("parsing options"));
+			error ("parsing options");
 		}
 
 		if (option_repeat == 0)
@@ -227,7 +227,7 @@ public class AfroditeTest.Application : Object {
 					try {
 						FileUtils.get_contents(filename, out buffer);
 					} catch (Error err) {
-						error (_("parsing options"));
+						error ("parsing options");
 					}
 					source.content = buffer;
 					_engine.queue_source (source);

@@ -30,9 +30,13 @@ libafrodite_SOURCES = \
 	$(NULL)
 
 libafrodite: $(libafrodite_SOURCES)
-	valac -C -H afrodite.h --library $(LIBNAME) --vapidir ./vapi --pkg gio-2.0 --pkg $(LIBVALA) --pkg utils $^
+	$(VALAC) --enable-experimental \
+	-X -fPIC -X -shared \
+	--library $(LIBNAME) \
+	-o $(LIBNAME).so \
+	-H afrodite.h --library $(LIBNAME) --vapidir ./vapi --pkg gio-2.0 --pkg $(LIBVALA) --pkg utils $^
 
 libafrodite-test: afroditetest.vala
-	valac -C --vapidir ./vapi --vapidir ./ --pkg $(LIBNAME) --pkg gio-2.0 --pkg $(LIBVALA) --pkg utils $^
+	$(VALAC) --vapidir ./vapi --vapidir ./ --pkg $(LIBNAME) --pkg gio-2.0 --pkg $(LIBVALA) --pkg utils $^
 
 all: libafrodite

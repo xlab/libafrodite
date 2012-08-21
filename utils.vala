@@ -124,49 +124,49 @@ namespace Afrodite.Utils
 		{
 			switch (type) {
 				case MemberType.NONE:
-					return _("None");
+					return "None";
 				case MemberType.VOID:
-					return _("Void");
+					return "Void";
 				case MemberType.CONSTANT:
-					return _("Constant");
+					return "Constant";
 				case MemberType.ENUM:
-					return _("Enum");
+					return "Enum";
 				case MemberType.ENUM_VALUE:
-					return _("Enum Value");
+					return "Enum Value";
 				case MemberType.FIELD:
-					return _("Field");
+					return "Field";
 				case MemberType.PROPERTY:
-					return _("Property");
+					return "Property";
 				case MemberType.LOCAL_VARIABLE:
-					return _("Variable");
+					return "Variable";
 				case MemberType.SIGNAL:
-					return _("Signal");
+					return "Signal";
 				case MemberType.CREATION_METHOD:
-					return _("Creation Method");
+					return "Creation Method";
 				case MemberType.CONSTRUCTOR:
-					return _("Constructor");
+					return "Constructor";
 				case MemberType.DESTRUCTOR:
-					return _("Destructor");
+					return "Destructor";
 				case MemberType.METHOD:
-					return _("Method");
+					return "Method";
 				case MemberType.DELEGATE:
-					return _("Delegate");
+					return "Delegate";
 				case MemberType.PARAMETER:
-					return _("Parameter");
+					return "Parameter";
 				case MemberType.ERROR_DOMAIN:
-					return _("Error Domain");
+					return "Error Domain";
 				case MemberType.ERROR_CODE:
-					return _("Error Code");
+					return "Error Code";
 				case MemberType.NAMESPACE:
-					return _("Namespace");
+					return "Namespace";
 				case MemberType.STRUCT:
-					return _("Struct");
+					return "Struct";
 				case MemberType.CLASS:
-					return _("Class");
+					return "Class";
 				case MemberType.INTERFACE:
-					return _("Interface");
+					return "Interface";
 				case MemberType.SCOPED_CODE_NODE:
-					return _("Block");
+					return "Block";
 				default:
 					string des = type.to_string ().up ();
 					warning ("Undefined description for symbol type: %s", des);
