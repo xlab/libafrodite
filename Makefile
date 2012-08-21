@@ -1,5 +1,4 @@
 NULL=
-export LD_LIBRARY_PATH := $(shell pwd)
 
 LIBNAME = libafrodite-1.0
 TESTNAME = afrodite-test
@@ -37,7 +36,7 @@ libafrodite: $(libafrodite_SOURCES)
 	-X -fPIC -X -shared \
 	--library $(LIBNAME) \
 	-o $(LIBNAME).so \
-	--header afrodite.h --library $(LIBNAME) --vapidir ./vapi \
+	--header afrodite.h --vapidir ./vapi \
 	--pkg gio-2.0 --pkg $(LIBVALA) --pkg utils $^
 	
 
